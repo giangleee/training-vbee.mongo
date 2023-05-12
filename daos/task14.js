@@ -5,18 +5,20 @@ const handleTask = async (collection) => {
         const result = await collection
             .aggregate([
                 {
-                    $match: {
-                        $or: [{ borough: 'Staten Island' }, { borough: 'Queens' }, { borough: 'Bronxor Brooklyn' }],
-                    },
-                },
-                {
                     $project: {
                         restaurant_id: 1,
                         name: 1,
+                        cuisine: 1,
                         borough: 1,
-                        cuisine: 1
-                    }
-                }
+                        filterBorough: {
+                            $and: [
+                                { $ne: ['$borough', 'Queens'] },
+                                { $ne: ['$borough', 'Staten Island'] },
+                                { $ne: ['$borough', 'Bronxor Brooklyn'] },
+                            ],
+                        },
+                    },
+                },
             ])
             .toArray();
         return result;

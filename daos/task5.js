@@ -1,6 +1,6 @@
 const handleTask = async (collection) => {
     try {
-        const result = await collection.find({}, { restaurant_id: 1, name: 1, borough: 1, cuisine: 1 }).toArray();
+        const result = await collection.find({}, { restaurant_id: 1, name: 1, borough: 1, cuisine: 1, _id: 0 }).toArray();
         // const result = await collection
         //     .aggregate([
         //         {

@@ -1,5 +1,3 @@
-const connectDatabase = require('../database/index')
-
 const handleTask = async (collection) => {
     try {
         const result = await collection.find({}).toArray()

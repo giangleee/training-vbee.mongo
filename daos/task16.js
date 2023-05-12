@@ -6,15 +6,7 @@ const handleTask = async (collection) => {
             .aggregate([
                 {
                     $match: {
-                        $or: [{ borough: 'Staten Island' }, { borough: 'Queens' }, { borough: 'Bronxor Brooklyn' }],
-                    },
-                },
-                {
-                    $project: {
-                        restaurant_id: 1,
-                        name: 1,
-                        borough: 1,
-                        cuisine: 1
+                        'address.street': { $exists: true, $type: "string" }
                     }
                 }
             ])
