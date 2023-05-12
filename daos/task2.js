@@ -1,8 +1,8 @@
-const restaurantsInsertOne = require('../data/restaurants_insert_one.json')
+const restaurantsInsertMany = require('../data/restaurants_insert_many.json')
 
 const handleTask = async (collection) => {
     try {
-        const result = await collection.insertOne(restaurantsInsertOne)
+        const result = await collection.insertMany(restaurantsInsertMany)
         return result
     } catch (error) {
         console.log(error)

@@ -1,8 +1,8 @@
-const restaurantsInsertOne = require('../data/restaurants_insert_one.json')
+const connectDatabase = require('../database/index')
 
 const handleTask = async (collection) => {
     try {
-        const result = await collection.insertOne(restaurantsInsertOne)
+        const result = await collection.find({}).toArray()
         return result
     } catch (error) {
         console.log(error)
