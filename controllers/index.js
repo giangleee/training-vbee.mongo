@@ -48,14 +48,26 @@ const baseController = async (request, response) => {
             result = await daos.task13(collection);
             break;
         case 14:
-            result = await daos.task14(collection)
-            break
+            result = await daos.task14(collection);
+            break;
         case 15:
-            result = await daos.task15(collection)
-            break
+            result = await daos.task15(collection);
+            break;
         case 16:
-            result = await daos.task16(collection)
-            break
+            result = await daos.task16(collection);
+            break;
+        case 17:
+            result = await daos.task17(collection);
+            break;
+        case 18:
+            result = await daos.task18(collection);
+            break;
+        case 19:
+            result = await daos.task19(collection);
+            break;
+        case 20:
+            result = await daos.task20(collection);
+            break;
     }
 
     return response.send(result);
